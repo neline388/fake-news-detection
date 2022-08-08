@@ -50,5 +50,10 @@ model = StackingClassifier(estimators=level0, final_estimator=level1, cv=5)
 model.fit(train_data, train_y)
 predictions = model.predict(test_data)
 print(classification_report(test_y , predictions))
+print('Enter your headline:')
+news_headline = input()
+data = model.transform([news_headline]).toarray()
+print(model.predict(data))
+
 
 
